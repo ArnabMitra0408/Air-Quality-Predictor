@@ -163,3 +163,4 @@ cython_debug/
 #Final CSV Data
 
 data_store/csv_aqi_data/aqi_data.csv
+/data_store
