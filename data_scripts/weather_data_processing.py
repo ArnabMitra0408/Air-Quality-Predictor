@@ -8,7 +8,7 @@ load_dotenv()
 
 
 json_data_path=os.getenv('json_weather_data_path')
-csv_folder_path=os.getenv('csv_weather_data_path')
+csv_folder_path=os.getenv('csv_weather_folder_path')
 csv_data_path=os.getenv('csv_weather_data_path')
 
 if __name__=='__main__':

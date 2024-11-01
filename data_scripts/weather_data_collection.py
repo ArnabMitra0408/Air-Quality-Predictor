@@ -6,22 +6,21 @@ from coordinates import states, latitudes, longitudes
 
 load_dotenv()
 
-api_key=os.getenv('API_KEY')
-base_url=os.getenv('base_url')
-start_date=os.getenv('start_date')
-end_date=os.getenv('end_date')
-data_path=os.getenv('json_weather_data_path')
+API_KEY=os.getenv('api_key')
+aqi_base_url=os.getenv('aqi_base_url')
+start_date=os.getenv('Start_date')
+end_date=os.getenv('End_date')
+json_weather_data_path=os.getenv('json_weather_data_path')
 hour=os.getenv('hr')
-
 if __name__=='__main__':
     print('****************Data Download Started*************************')
 
-    if not os.path.exists(data_path):
-        os.makedirs(data_path)
-        print(f"Created directory: {data_path}")
+    if not os.path.exists(json_weather_data_path):
+        os.makedirs(json_weather_data_path)
+        print(f"Created directory: {json_weather_data_path}")
 
     for index in range(len(latitudes)):
-        file_name=data_path+states[index]+'.json'
+        file_name=json_weather_data_path+states[index]+'.json'
         if os.path.exists(file_name):
             print(f"Data for {states[index]} already exists. Skipping Download")
             continue

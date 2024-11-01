@@ -1,0 +1,19 @@
+stages:
+  AQI_Gather:
+    cmd: python data_scripts/aqi_data_gathering.py
+    deps:
+      - data_scripts/coordinates.py
+      - data_store/json_aqi_data
+  AQI_Process:
+    cmd: python data_scripts/aqi_data_processing.py
+    deps:
+      - data_store/csv_aqi_data
+  Weather_Gather:
+    cmd: python data_scripts/weather_data_collection.py
+    deps:
+      - data_scripts/coordinates.py
+      - data_store/json_weather_data
+  Weather_Process:
+    cmd: python data_scripts/weather_data_processing.py
+    deps:
+      - data_store/csv_weather_data

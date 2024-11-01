@@ -1,0 +1,42 @@
+schema: '2.0'
+stages:
+  AQI_Gather:
+    cmd: python data_scripts/aqi_data_gathering.py
+    deps:
+    - path: data_scripts/coordinates.py
+      hash: md5
+      md5: d340f6a81dc76fd56ee7f9b1255669c7
+      size: 2118
+    - path: data_store/json_aqi_data
+      hash: md5
+      md5: f427d622b88ab8c4f30782354c65982f.dir
+      size: 69887517
+      nfiles: 50
+  AQI_Process:
+    cmd: python data_scripts/aqi_data_processing.py
+    deps:
+    - path: data_store/csv_aqi_data
+      hash: md5
+      md5: 37172117349b58dd36cd7e51c77f40b4.dir
+      size: 36577420
+      nfiles: 1
+  Weather_Gather:
+    cmd: python data_scripts/weather_data_collection.py
+    deps:
+    - path: data_scripts/coordinates.py
+      hash: md5
+      md5: d340f6a81dc76fd56ee7f9b1255669c7
+      size: 2118
+    - path: data_store/json_weather_data
+      hash: md5
+      md5: 3ec09d373ceb7208ca6813fef2d9b2e8.dir
+      size: 2525154
+      nfiles: 50
+  Weather_Process:
+    cmd: python data_scripts/weather_data_processing.py
+    deps:
+    - path: data_store/csv_weather_data
+      hash: md5
+      md5: a8030812c7bdcb5361bf0be37d0c65f9.dir
+      size: 453747
+      nfiles: 1
